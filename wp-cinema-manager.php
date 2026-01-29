@@ -55,12 +55,26 @@ class WP_Cinema_Manager {
      * Include required files
      */
     private function include_files() {
-        require_once WP_CINEMA_PLUGIN_DIR . 'includes/class-cinema-movies.php';
-        require_once WP_CINEMA_PLUGIN_DIR . 'includes/class-cinema-venues.php';
-        require_once WP_CINEMA_PLUGIN_DIR . 'includes/class-cinema-showtimes.php';
-        require_once WP_CINEMA_PLUGIN_DIR . 'includes/class-cinema-taxonomies.php';
-        require_once WP_CINEMA_PLUGIN_DIR . 'includes/class-cinema-admin.php';
-        require_once WP_CINEMA_PLUGIN_DIR . 'includes/class-cinema-api.php';
+        $files = array(
+            'includes/class-cinema-movies.php',
+            'includes/class-cinema-venues.php',
+            'includes/class-cinema-showtimes.php',
+            'includes/class-cinema-taxonomies.php',
+            'includes/class-cinema-admin.php',
+            'includes/class-cinema-api.php',
+        );
+        
+        foreach ($files as $file) {
+            $filepath = WP_CINEMA_PLUGIN_DIR . $file;
+            if (file_exists($filepath)) {
+                require_once $filepath;
+            } else {
+                // Log error if WordPress debug is enabled
+                if (defined('WP_DEBUG') && WP_DEBUG) {
+                    error_log('WP Cinema Manager: Missing file - ' . $filepath);
+                }
+            }
+        }
     }
     
     /**
@@ -68,7 +82,7 @@ class WP_Cinema_Manager {
      */
     private function init_hooks() {
         add_action('plugins_loaded', array($this, 'load_textdomain'));
-        add_action('init', array($this, 'init'));
+        add_action('init', array($this, 'init'), 0); // Priority 0 to run early
         register_activation_hook(__FILE__, array($this, 'activate'));
         register_deactivation_hook(__FILE__, array($this, 'deactivate'));
     }

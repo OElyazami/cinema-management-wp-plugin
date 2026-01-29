@@ -20,7 +20,7 @@ class Cinema_Taxonomies {
     }
     
     private function __construct() {
-        add_action('init', array($this, 'register_taxonomies'));
+        add_action('init', array($this, 'register_taxonomies'), 5);
     }
     
     /**

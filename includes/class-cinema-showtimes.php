@@ -20,7 +20,7 @@ class Cinema_Showtimes {
     }
     
     private function __construct() {
-        add_action('init', array($this, 'register_post_type'));
+        add_action('init', array($this, 'register_post_type'), 5);
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('save_post_cinema_showtime', array($this, 'save_meta_data'));
         add_filter('manage_cinema_showtime_posts_columns', array($this, 'custom_columns'));

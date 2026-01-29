@@ -24,7 +24,7 @@ services:
     container_name: cinema_wordpress
     restart: always
     ports:
-      - "8080:80"
+      - "8082:80"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
