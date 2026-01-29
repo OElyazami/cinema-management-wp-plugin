@@ -54,8 +54,23 @@ class Cinema_Admin {
      * Enqueue Admin Assets
      */
     public function enqueue_admin_assets($hook) {
-        // Only load on cinema admin pages
-        if (strpos($hook, 'cinema') === false && !in_array(get_post_type(), array('cinema_movie', 'cinema_venue', 'cinema_showtime'))) {
+        global $post_type;
+        
+        // Load on all cinema post type pages
+        $cinema_post_types = array('cinema_movie', 'cinema_venue', 'cinema_showtime');
+        
+        // Check if we're on a cinema page
+        $is_cinema_page = false;
+        
+        if (in_array($post_type, $cinema_post_types)) {
+            $is_cinema_page = true;
+        }
+        
+        if (strpos($hook, 'cinema') !== false) {
+            $is_cinema_page = true;
+        }
+        
+        if (!$is_cinema_page) {
             return;
         }
         
@@ -63,7 +78,7 @@ class Cinema_Admin {
             'cinema-admin-css',
             WP_CINEMA_PLUGIN_URL . 'assets/css/admin.css',
             array(),
-            WP_CINEMA_VERSION
+            WP_CINEMA_VERSION . '.' . time() // Cache busting during development
         );
         
         wp_enqueue_script(

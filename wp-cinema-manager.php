@@ -98,6 +98,9 @@ class WP_Cinema_Manager {
      * Initialize plugin
      */
     public function init() {
+        // Add theme support for post thumbnails
+        add_theme_support('post-thumbnails', array('cinema_movie', 'cinema_venue', 'cinema_showtime'));
+        
         // Initialize custom post types
         Cinema_Movies::get_instance();
         Cinema_Venues::get_instance();

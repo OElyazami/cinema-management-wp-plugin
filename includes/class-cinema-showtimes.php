@@ -142,17 +142,6 @@ class Cinema_Showtimes {
         ));
         ?>
         <div class="cinema-metabox-wrapper">
-            <style>
-                .cinema-metabox-wrapper { padding: 10px 0; }
-                .cinema-field-row { margin-bottom: 15px; }
-                .cinema-field-row label { display: inline-block; width: 150px; font-weight: 600; vertical-align: top; }
-                .cinema-field-row input[type="text"],
-                .cinema-field-row input[type="date"],
-                .cinema-field-row input[type="time"],
-                .cinema-field-row select { width: 60%; padding: 5px; }
-                .cinema-field-row select { max-width: 400px; }
-            </style>
-            
             <div class="cinema-field-row">
                 <label for="cinema_movie_id"><?php _e('Movie:', 'wp-cinema-manager'); ?> *</label>
                 <select id="cinema_movie_id" name="cinema_movie_id" required>

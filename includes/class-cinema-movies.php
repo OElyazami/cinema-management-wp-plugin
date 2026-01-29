@@ -56,7 +56,7 @@ class Cinema_Movies {
             'label'                 => __('Movie', 'wp-cinema-manager'),
             'description'           => __('Cinema Movies', 'wp-cinema-manager'),
             'labels'                => $labels,
-            'supports'              => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
+            'supports'              => array('title', 'thumbnail'),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,
@@ -116,17 +116,6 @@ class Cinema_Movies {
         $price = get_post_meta($post->ID, '_cinema_ticket_price', true);
         ?>
         <div class="cinema-metabox-wrapper">
-            <style>
-                .cinema-metabox-wrapper { padding: 10px 0; }
-                .cinema-field-row { margin-bottom: 15px; }
-                .cinema-field-row label { display: inline-block; width: 150px; font-weight: 600; }
-                .cinema-field-row input[type="text"],
-                .cinema-field-row input[type="number"],
-                .cinema-field-row input[type="date"],
-                .cinema-field-row textarea { width: 60%; padding: 5px; }
-                .cinema-field-row textarea { height: 80px; }
-            </style>
-            
             <div class="cinema-field-row">
                 <label for="cinema_director"><?php _e('Director:', 'wp-cinema-manager'); ?></label>
                 <input type="text" id="cinema_director" name="cinema_director" value="<?php echo esc_attr($director); ?>" />

@@ -56,7 +56,7 @@ class Cinema_Venues {
             'label'                 => __('Venue', 'wp-cinema-manager'),
             'description'           => __('Cinema Venues/Halls', 'wp-cinema-manager'),
             'labels'                => $labels,
-            'supports'              => array('title', 'editor', 'thumbnail'),
+            'supports'              => array('title', 'thumbnail'),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,
@@ -113,19 +113,6 @@ class Cinema_Venues {
         $accessibility = get_post_meta($post->ID, '_cinema_accessibility', true);
         ?>
         <div class="cinema-metabox-wrapper">
-            <style>
-                .cinema-metabox-wrapper { padding: 10px 0; }
-                .cinema-field-row { margin-bottom: 15px; }
-                .cinema-field-row label { display: inline-block; width: 150px; font-weight: 600; }
-                .cinema-field-row input[type="text"],
-                .cinema-field-row input[type="number"],
-                .cinema-field-row select,
-                .cinema-field-row textarea { width: 60%; padding: 5px; }
-                .cinema-field-row textarea { height: 80px; }
-                .cinema-checkbox-group { display: inline-block; vertical-align: top; width: 60%; }
-                .cinema-checkbox-group label { width: auto; display: inline-block; margin-right: 15px; font-weight: normal; }
-            </style>
-            
             <div class="cinema-field-row">
                 <label for="cinema_capacity"><?php _e('Capacity (seats):', 'wp-cinema-manager'); ?></label>
                 <input type="number" id="cinema_capacity" name="cinema_capacity" value="<?php echo esc_attr($capacity); ?>" min="1" />

@@ -1,5 +1,90 @@
 /* Cinema Admin Styles */
 
+/* Fix title field width on cinema post types */
+.post-type-cinema_movie #titlediv,
+.post-type-cinema_venue #titlediv,
+.post-type-cinema_showtime #titlediv {
+    margin: 0 0 10px 0;
+}
+
+.post-type-cinema_movie #titlewrap,
+.post-type-cinema_venue #titlewrap,
+.post-type-cinema_showtime #titlewrap {
+    position: relative;
+}
+
+.post-type-cinema_movie #title,
+.post-type-cinema_venue #title,
+.post-type-cinema_showtime #title {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    font-size: 1.7em;
+    line-height: 1.4em;
+    height: 50px;
+}
+
+.post-type-cinema_movie #titlewrap input,
+.post-type-cinema_venue #titlewrap input,
+.post-type-cinema_showtime #titlewrap input {
+    width: 100% !important;
+}
+
+/* Header spacing */
+.post-type-cinema_movie .wrap > h1,
+.post-type-cinema_venue .wrap > h1,
+.post-type-cinema_showtime .wrap > h1 {
+    margin-bottom: 15px;
+}
+
+/* Improve post editor layout */
+.post-type-cinema_movie #post-body-content,
+.post-type-cinema_venue #post-body-content,
+.post-type-cinema_showtime #post-body-content {
+    margin-bottom: 20px;
+}
+
+.post-type-cinema_movie #poststuff,
+.post-type-cinema_venue #poststuff,
+.post-type-cinema_showtime #poststuff {
+    padding-top: 10px;
+}
+
+/* List table improvements */
+.post-type-cinema_movie .wp-list-table,
+.post-type-cinema_venue .wp-list-table,
+.post-type-cinema_showtime .wp-list-table {
+    background: #fff;
+}
+
+.post-type-cinema_movie .wp-list-table img,
+.post-type-cinema_venue .wp-list-table img,
+.post-type-cinema_showtime .wp-list-table img {
+    border-radius: 2px;
+}
+
+/* Better column widths for list view */
+.post-type-cinema_movie .column-thumbnail {
+    width: 70px;
+}
+
+.post-type-cinema_movie .column-director {
+    width: 150px;
+}
+
+.post-type-cinema_movie .column-duration {
+    width: 100px;
+}
+
+.post-type-cinema_movie .column-release_date {
+    width: 120px;
+}
+
+.post-type-cinema_movie .column-genres {
+    width: 150px;
+}
+
 .cinema-metabox-wrapper {
     padding: 10px 0;
 }
@@ -26,11 +111,13 @@
 .cinema-field-row select,
 .cinema-field-row textarea {
     width: 60%;
-    padding: 5px;
+    max-width: 600px;
+    padding: 8px 12px;
     border: 1px solid #8c8f94;
     border-radius: 4px;
     box-shadow: 0 0 0 transparent;
     transition: .05s border-color ease-in-out;
+    font-size: 14px;
 }
 
 .cinema-field-row textarea {
@@ -225,6 +312,26 @@
 /* Settings Page */
 .cinema-settings .form-table th {
     width: 200px;
+}Better metabox styling */
+.postbox .cinema-metabox-wrapper {
+    padding: 15px;
+}
+
+.postbox .cinema-field-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Improve spacing in post editor */
+.post-type-cinema_movie #poststuff,
+.post-type-cinema_venue #poststuff,
+.post-type-cinema_showtime #poststuff {
+    padding-top: 10px;
+}
+
+/* Fix featured image box */
+.post-type-cinema_movie #postimagediv,
+.post-type-cinema_venue #postimagediv {
+    min-height: 0;
 }
 
 /* Responsive */
@@ -244,6 +351,7 @@
     .cinema-field-row select,
     .cinema-field-row textarea {
         width: 100%;
+        max-width: 100%;
     }
     
     .cinema-field-row .description {
@@ -251,6 +359,13 @@
     }
     
     .cinema-checkbox-group {
+        width: 100%;
+    }
+}
+
+/* Clean up showtime title (auto-generated) */
+.post-type-cinema_showtime #title-prompt-text {
+    opacity: 0.6;cinema-checkbox-group {
         width: 100%;
     }
 }
